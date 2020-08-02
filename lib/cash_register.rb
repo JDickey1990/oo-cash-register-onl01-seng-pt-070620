@@ -12,9 +12,11 @@ def add_item(title, price, quantity = 1)
 end
 
 def apply_discount
- percentage = (1.0 - (0.01 * discount))
- self.total = @total * percentage 
- "After the discount, the total comes to $#{self.total.to_i}."
+ @total -= (@discount.to_f/100 * @total)
+ if @discount ==  0
+   "There is no discount to apply."
+else
+   "After the discount, the total comes to $#{@total.to_i}."
 
 end
 
